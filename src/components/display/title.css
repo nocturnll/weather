@@ -1,0 +1,36 @@
+.title {
+  padding: 5px;
+  color: black;
+  font-size: 2em;
+  font-family: "Playfair Display", serif;
+}
+
+.navbar {
+  display: inline-flex;
+}
+
+button {
+  text-decoration: none;
+  color: black;
+  font-size: 12pt;
+  font-family: "Fira Mono", monospace;
+  border: 1px solid lightsteelblue;
+  padding: 5px;
+  border-radius: 2px;
+  background-color: transparent;
+  margin: 0 0.5em;
+}
+
+button:hover {
+  background-color: steelblue;
+  color: white;
+  cursor: pointer;
+}
+
+.city {
+  text-decoration: underline;
+}
+
+.selected button {
+  background-color: white;
+}
