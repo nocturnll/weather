@@ -8,5 +8,5 @@ export const getWeather = (city, country) => {
   const apiCall = `https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=${apiKey}&units=${units}`;
   return fetch(apiCall)
     .then((response) => response.json())
-    .then((weather) => weather.list);
+    .then((weather) => weather);
 };

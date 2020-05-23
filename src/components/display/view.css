@@ -23,5 +23,19 @@
 }
 
 .dayOfTheWeek {
+}
+
+.timeOfDay {
+  min-height: 4em;
+  font-size: 0.8em;
+}
+
+#around {
+  font-size: 0.7em;
+  color: rgb(113, 133, 190);
+  vertical-align: text-bottom;
+}
+
+.degrees {
   font-weight: bold;
 }

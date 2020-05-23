@@ -4,9 +4,9 @@ import "./view.css";
 
 export class View extends React.Component {
   render() {
-    if (!this.props.weather) return <p></p>;
+    if (!this.props.weather || this.props.weather.forEach((x) => x))
+      return <p>Fuck</p>;
 
-    let day = new Date();
     let days = [
       "Sunday",
       "Monday",
@@ -24,44 +24,35 @@ export class View extends React.Component {
       "Saturday",
     ];
 
-    if (this.props.view === "Today") {
-      return (
-        <div className="weatherBox">
+    if (this.props.view === "Today" || this.props.view === "Tomorrow") {
+      const data = this.props.weather.map((day) => {
+        return (
           <div className="forecast">
-            <p className="dayOfTheWeek">{days[day.getDay()]}</p>
-            <p className="degrees">
-              {this.props.weather[0].main.temp.toFixed(1)} degrees
+            <p className="dayOfTheWeek">
+              {days[day.timestamp.getDay()]}
+              <br />
+              <span className="timeOfDay">
+                {day.description} <br />
+                <span id="around">
+                  (around {day.timestamp.getHours() % 12 || 12})
+                </span>
+              </span>
             </p>
-            <p className="weatherType">
-              {this.props.weather[0].weather[0].main}
-            </p>
+            <p className="degrees">{day.weather.toFixed(1)}°C</p>
+            <p className="weatherType">{day.type}</p>
             {/* <p className="flavourText">
               {flavourText.get(weather[0].main.temp)}
             </p> */}
           </div>
-        </div>
-      );
-    } else if (this.props.view === "Tomorrow") {
-      return (
-        <div className="weatherBox">
-          <div className="forecast">
-            <p className="dayOfTheWeek">{days[day.getDay() + 1]}</p>
-            <p className="degrees">
-              {this.props.weather[8].main.temp.toFixed(1)}°C
-            </p>
-            <p className="weatherType">
-              {this.props.weather[1].weather[0].main}
-            </p>
-            {/* <p className="flavourText">
-                  {flavourText.get(weather[0].main.temp)}
-                </p> */}
-          </div>
-        </div>
-      );
+        );
+      });
+      return <div className="weatherBox">{data}</div>;
     } else {
       const fiveDayForecast = [0, 1, 2, 3, 4].map(
-        (i) => this.props.weather[i * 8]
+        (i) => this.props.rawWeather[i * 8]
       );
+
+      let day = new Date();
 
       const data = fiveDayForecast.map((fiveDay, i) => {
         return (
