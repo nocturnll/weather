@@ -1,41 +1,54 @@
 .weatherBox {
-  margin: 3em 0;
   width: 80%;
-
   display: flex;
 }
 
 .forecast {
-  padding: 0px 10px;
+  padding: 10px;
   margin: 10px;
   min-width: 150px;
   max-width: 150px;
   border: 1px solid lightsteelblue;
-  border-radius: 5px;
-}
 
-.forecast:hover {
-  background-color: white;
+  /* border-radius: 5px; */
 }
 
 .flavourText {
   font-size: 12px;
 }
 
-.dayOfTheWeek {
-}
-
 .timeOfDay {
-  min-height: 4em;
   font-size: 0.8em;
 }
 
 #around {
   font-size: 0.7em;
   color: rgb(113, 133, 190);
-  vertical-align: text-bottom;
+  vertical-align: text-top;
 }
 
 .degrees {
   font-weight: bold;
+  background-color: white;
+  font-size: 1em;
+  padding: 2px 10px;
+}
+
+.localTime {
+  margin: 10em 0 0 0;
+  font-size: 0.5em;
+  padding: 0 10px;
+}
+.weatherDescription {
+  font-size: 0.5em;
+  color: rgb(113, 133, 190);
+}
+
+.dayOfTheWeek {
+  font-size: 1em;
+  margin: 0;
+}
+
+.weatherType {
+  font-size: 0.8em;
 }

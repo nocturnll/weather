@@ -1,24 +1,25 @@
 .title {
-  padding: 5px;
   color: black;
   font-size: 2em;
-  font-family: "Playfair Display", serif;
+  font-family: 'Playfair Display', serif;
+  margin: 0 0 0.5em 8px;
 }
 
 .navbar {
   display: inline-flex;
+  margin: 0 0 0 10px;
 }
 
 button {
   text-decoration: none;
   color: black;
   font-size: 12pt;
-  font-family: "Fira Mono", monospace;
+  font-family: 'Fira Mono', monospace;
   border: 1px solid lightsteelblue;
   padding: 5px;
-  border-radius: 2px;
+
   background-color: transparent;
-  margin: 0 0.5em;
+  margin: 0 6px 0 0;
 }
 
 button:hover {
