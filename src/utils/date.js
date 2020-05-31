@@ -35,7 +35,7 @@ const reduceToThisDay = (newForecast, view) => {
       },
     ]
     while (
-      newForecast[0].dt_txt.getHours() != newForecast[i].dt_txt.getHours()
+      newForecast[0].dt_txt.getHours() !== newForecast[i].dt_txt.getHours()
     ) {
       // pushes only the temperature in degrees and the timestamp as an object to a new array
       weatherAndTime.push({
@@ -53,7 +53,7 @@ const reduceToThisDay = (newForecast, view) => {
     let i = 1 // counter to find first day of 'tomorrow'
     let x = 2 // second counter to find additional days past 'tomorrow'
     let today = newForecast[0].dt_txt.getHours() // set the definition of 'today' to index[0]'s time
-    while (newForecast[i].dt_txt.getHours() != today) {
+    while (newForecast[i].dt_txt.getHours() !== today) {
       // looks for the next time the hours = today's hours because that'll be tomorrow
       i++
       x++ // increases both counters
@@ -67,7 +67,7 @@ const reduceToThisDay = (newForecast, view) => {
       },
     ]
 
-    while (today != newForecast[x].dt_txt.getHours()) {
+    while (today !== newForecast[x].dt_txt.getHours()) {
       // repeats the logic of the today fn - pushes everything from each timestamp of 'tomorrow' until it hits the next day
       weatherAndTime.push({
         weather: newForecast[x].main.temp,
@@ -90,7 +90,7 @@ const describeTimeOfDay = weatherAndTime => {
         // if finalForecast does not exist, or if it does exists and doesn't already contain a forecast with this description
         // why: we only want to have the first early morning forecast, first morning, first noon, etc.
         !finalForecast ||
-        finalForecast.every(d => d.description != 'Early Morning')
+        finalForecast.every(d => d.description !== 'Early Morning')
       ) {
         finalForecast.push(weatherAndTime[i])
         finalForecast[finalForecast.length - 1].description = 'Early Morning'
@@ -98,20 +98,20 @@ const describeTimeOfDay = weatherAndTime => {
     } else if (time > 5 && time <= 10) {
       if (
         !finalForecast ||
-        finalForecast.every(d => d.description != 'Morning')
+        finalForecast.every(d => d.description !== 'Morning')
       ) {
         finalForecast.push(weatherAndTime[i])
         finalForecast[finalForecast.length - 1].description = 'Morning'
       }
     } else if (time > 10 && time <= 14) {
-      if (!finalForecast || finalForecast.every(d => d.description != 'Noon')) {
+      if (!finalForecast || finalForecast.every(d => d.description !== 'Noon')) {
         finalForecast.push(weatherAndTime[i])
         finalForecast[finalForecast.length - 1].description = 'Noon'
       }
     } else if (time > 14 && time <= 19) {
       if (
         !finalForecast ||
-        finalForecast.every(d => d.description != 'Afternoon')
+        finalForecast.every(d => d.description !== 'Afternoon')
       ) {
         finalForecast.push(weatherAndTime[i])
         finalForecast[finalForecast.length - 1].description = 'Afternoon'
@@ -119,7 +119,7 @@ const describeTimeOfDay = weatherAndTime => {
     } else if (time > 19 || time === 0) {
       if (
         !finalForecast ||
-        finalForecast.every(d => d.description != 'Evening')
+        finalForecast.every(d => d.description !== 'Evening')
       ) {
         finalForecast.push(weatherAndTime[i])
         finalForecast[finalForecast.length - 1].description = 'Evening'

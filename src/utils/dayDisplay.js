@@ -47,6 +47,8 @@ export const localize = (rawWeather, view) => {
     case 'Sat':
       i = 6
       break
+    default:
+      break
   }
 
   const localDay = days[i]
