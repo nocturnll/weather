@@ -1,4 +1,4 @@
-const apiKey = process.env.REACT_APP_API_KEY;
+const apiKey = 'ec362ff2f036929f0acb8d6cc8ca8f19';
 const units = "metric";
 
 // sample API call
